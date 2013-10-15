@@ -7,7 +7,7 @@
 # Actions:
 #
 
-class windows::enable_auto_update {
+class windows_common::configuration::enable_auto_update {
   notify { 'Enabling Automatic Windows Updates': }
   exec { 'enable_automatic_updates':
     path    => $::winpath,

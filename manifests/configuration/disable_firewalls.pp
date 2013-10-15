@@ -6,7 +6,7 @@
 #
 # Actions:
 #
-class windows::disable_firewalls {
+class windows_common::configuration::disable_firewalls {
   notify { 'Disabling All Windows Firewalls': }
   exec { 'disable_all_firewalls':
     path    => $::winpath,

@@ -1,4 +1,4 @@
-# Class: windows::commands
+# Class: windows_common::domain::create
 #
 # This module defines reused commands for windows
 #
@@ -8,7 +8,7 @@
 #
 
 
-class windows_common::create_domain{
+class windows_common::domain::create{
 
   # Define: windows::commands::create_ad_domain
   # Create an Active Directory Domain

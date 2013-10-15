@@ -1,4 +1,4 @@
-# == Define: windows_common::feature
+# == Define: windows_common::configuration::feature
 #
 # It allows the configuration of windows features.
 #
@@ -26,7 +26,7 @@
 #
 # === Copyright
 #
-define windows_common::feature(
+define windows_common::configuration::feature(
   $ensure = present,
 ){
   case $ensure {
