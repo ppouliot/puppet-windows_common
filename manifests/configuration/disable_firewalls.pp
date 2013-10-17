@@ -9,7 +9,7 @@
 class windows_common::configuration::disable_firewalls {
   notify { 'Disabling All Windows Firewalls': }
   exec { 'disable_all_firewalls':
-    path    => $::winpath,
+    path    => $::path,
     command => 'powershell.exe -executionpolicy remotesigned -Command Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False',
   }
 }
