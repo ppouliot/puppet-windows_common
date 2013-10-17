@@ -32,12 +32,14 @@ $url       = undef,
   }
   
   exec { 'enable_rdp_connection':
-    command => 'powershell.exe -executionpolicy remotesigned -Command (Get-WmiObject win32_TerminalServiceSetting -Namespace root\\cimv2\\TerminalServices).SetAllowTSConnections(1)',
+    command => '(Get-WmiObject win32_TerminalServiceSetting -Namespace root\cimv2\TerminalServices).SetAllowTSConnections(1)',
+	provider  => powershell,
   }
-
+  
   exec { 'set_rdp_supported_clients':
-    command => 'powershell.exe -executionpolicy remotesigned -Command Set-RemoteDesktopConfig -Enable -AllowOlderClients',
+    command => 'Set-RemoteDesktopConfig -Enable -AllowOlderClients',
     require => Package['Vexasoft_Cmdlet_Library_x64.msi'],
+	provider => powershell,
   }
 
 }
