@@ -1,4 +1,4 @@
-# Class: windows::disable_firewalls
+# Class: windows_common::configuration::disable_firewalls
 #
 # This module disables the OS firewalls on the windows host
 #
@@ -10,6 +10,7 @@ class windows_common::configuration::disable_firewalls {
   notify { 'Disabling All Windows Firewalls': }
   exec { 'disable_all_firewalls':
     path    => $::winpath,
-    command => 'powershell.exe -executionpolicy remotesigned -Command Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False',
+    command => 'Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False',
+    provider  => powershell,
   }
 }
