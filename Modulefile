@@ -1,5 +1,5 @@
-name    'puppet-windows_common'
-version '0.1.0'
+name    'openstack-hyper-v-windows_common'
+version '0.0.1'
 source 'https://github.com/openstack-hyper-v/puppet-windows_common.git'
 author 'Peter Pouliot <peter@pouliot.net>'
 license 'Apache License, Version 2.0'
