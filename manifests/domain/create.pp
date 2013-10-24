@@ -19,6 +19,11 @@ class windows_common::domain::create{
       onlyif => 'Import-Module ADDSDeployment',
 	  provider	=> powershell,
     }
+	
+	windows_common::configuration::feature { 'AD-Domain-Services':
+      ensure => present,
+	  before => Exec['create_active_directory_domain'],
+    }
   }
 
 }
