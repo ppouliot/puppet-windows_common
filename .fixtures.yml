@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    powershell:     git://github.com/joshcooper/puppetlabs-powershell.git
+  symlinks:
+    windows_common: "#{source_dir}"
