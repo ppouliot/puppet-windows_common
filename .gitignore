@@ -1,0 +1,5 @@
+Gemfile.lock
+vendor
+spec/fixtures
+.rspec_system
+.bundle
