@@ -13,11 +13,11 @@
 #
 # === Examples
 #
-#  windows_common::feature { 'Hyper-V':
+#  windows_common::configuration::feature { 'Hyper-V':
 #    ensure => present,
 #  }
 #  
-#  windows_common::feature { 'Telnet-Server':
+#  windows_common::configuration::feature { 'Telnet-Server':
 #    ensure => absent,
 #  }
 #
