@@ -4,12 +4,9 @@
 # [ timezone]
 #
 class windows_common::params {
+#  $winpath = "${::systemroot}\system32",$::systemroot,$::winpath,$::path,
 
-
-
-  $winpath = "${::systemroot}\system32",$::systemroot,$::winpath,$::path
-
-  Exec { path => $::winpath }
+#  Exec { path => $::winpath }
 
 #
 # configuration::ntp

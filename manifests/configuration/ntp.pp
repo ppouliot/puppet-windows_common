@@ -6,8 +6,7 @@
 #
 # Actions:
 #
-
-class windows_common::configuration::ntp(
+class windows_common::configuration::ntp (
     $timeserver = $windows_common::params::timeserver,
     $timezone   = $windows_common::params::timezone,
     $winpath    = $windows_common::params::winpath,
