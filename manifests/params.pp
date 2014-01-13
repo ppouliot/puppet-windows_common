@@ -11,7 +11,7 @@ class windows_common::params {
 #
 # configuration::ntp
 #
-    $timeserver = 'bonehed.lcs.mit.edu'
+    $timeserver = 'pool.ntp.org'
     $timezone   = 'Eastern Standard Time'
 
 
