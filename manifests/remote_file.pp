@@ -25,6 +25,7 @@ define windows_common::remote_file($source, $destination){
     command  => "(new-object Net.WebClient).DownloadFile(\'${source}\',\'${destination}\')",
     creates  => $destination,
     unless   => "exit !(Test-Path -Path '${destination}')",
+    tries    => 5,
     provider => powershell,
   }
 }
