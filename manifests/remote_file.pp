@@ -21,10 +21,16 @@
 # === Copyright
 #
 define windows_common::remote_file($source, $destination){
+  exec{ "dest-dir-${destination}":
+    command  => "md [IO.Path]::GetDirectoryName(${destination})",
+    unless   => "exit !([IO.Directory]::Exists([IO.Path]::GetDirectoryName(${destination})))",
+    provider => powershell,
+    before   => Exec[$name],
+  }
   exec{ $name:
-    command  => "$dm=([IO.Path]::GetDirectoryName(${destination})); if(![IO.Directory]::Exists($dm)){md $dm}; (new-object Net.WebClient).DownloadFile(\'${source}\',\'${destination}\')",
+    command  => "(new-object Net.WebClient).DownloadFile(\'${source}\',\'${destination}\')",
     creates  => $destination,
-    unless   => "exit !(Test-Path -Path '${destination}')",
+#    unless   => "exit !(Test-Path -Path '${destination}')",
     tries    => 5,
     provider => powershell,
   }
