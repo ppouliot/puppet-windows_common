@@ -36,21 +36,21 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class windows_common {
-  notify {"WinPATH: ${winpath}":}
-  notify {"AppData: ${appdata}":}
-  notify {"Homedrive: ${homedrive}":}
-  notify {"LocalAppdata: ${localappdata}":}
-  notify {"ProgramData: ${programdata}":}
-  notify {"ProgramFilesX64: ${programw6432}":}
-  notify {"ProgramFilesX86: ${programx86}":}
-  notify {"PowerShell ModulePath: ${psmodulepath}":}
-  notify {"Public: ${public}":}
-  notify {"SystemDrive: ${systemdrive}":}
-  notify {"SystemRoot: ${systemroot}":}
-  notify {"Temp: ${temp}":}
-  notify {"Tmp: ${tmp}":}
-  notify {"UserDomain: ${userdomain}":}
-  notify {"UserDomainRoamingProfile: ${userdomain_roamingprofile}":}
-  notify {"WinDir: ${windir}":}
-  Exec{ path => "c:/windows/system32;${winpath};${::path}",}
+  notify {"WinPATH: ${::winpath}":}
+  notify {"AppData: ${::appdata}":}
+  notify {"Homedrive: ${::homedrive}":}
+  notify {"LocalAppdata: ${::localappdata}":}
+  notify {"ProgramData: ${::programdata}":}
+  notify {"ProgramFilesX64: ${::programw6432}":}
+  notify {"ProgramFilesX86: ${::programx86}":}
+  notify {"PowerShell ModulePath: ${::psmodulepath}":}
+  notify {"Public: ${::public}":}
+  notify {"SystemDrive: ${::systemdrive}":}
+  notify {"SystemRoot: ${::systemroot}":}
+  notify {"Temp: ${::temp}":}
+  notify {"Tmp: ${::tmp}":}
+  notify {"UserDomain: ${::userdomain}":}
+  notify {"UserDomainRoamingProfile: ${::userdomain_roamingprofile}":}
+  notify {"WinDir: ${::windir}":}
+  Exec{ path => "c:/windows/system32;${::winpath};${::path}",}
 }

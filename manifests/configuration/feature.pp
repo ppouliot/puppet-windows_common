@@ -45,7 +45,7 @@ define windows_common::configuration::feature(
       }
     }
     default: {
-      fail "Invalid 'ensure' value '$ensure' for windows_common::feature"
+      fail "Invalid 'ensure' value '${ensure}' for windows_common::feature"
     }
   }
 }

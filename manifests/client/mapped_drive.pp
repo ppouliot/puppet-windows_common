@@ -36,10 +36,10 @@
 #   }
 #
 define windows_common::client::mapped_drive (
-    $ensure = present,
-    $drive_letter = $title,
     $server,
-    $share
+    $share,
+    $ensure = present,
+    $drive_letter = $title
   ){
   case $ensure {
     present: {
@@ -56,7 +56,7 @@ define windows_common::client::mapped_drive (
       }
     }
     default: {
-      fail "Invalid 'ensure' value '$ensure' for windows_common::client::mapped_drive"
+      fail "Invalid 'ensure' value '${ensure}' for windows_common::client::mapped_drive"
     }
   }
 }

@@ -10,6 +10,6 @@
 class windows_common::configuration::disable_auto_update {
   notify { 'Disabling Automatic Windows Updates': }
   exec { 'disable_automatic_updates':
-    command => "${windir}\\system32\\cmd.exe /c cscript ${::windir}\\system32\\scregedit.wsf /AU 1",
+    command => "${::windir}\\system32\\cmd.exe /c cscript ${::windir}\\system32\\scregedit.wsf /AU 1",
   }
 }

@@ -46,9 +46,9 @@ define windows_common::configuration::service (
   $ensure       = present,
   $binpath      = undef,
   $display      = $name,
-  $description  = "Puppet managed service",
-  $user         = "LocalSystem",
-  $password     = "",
+  $description  = 'Puppet managed service',
+  $user         = 'LocalSystem',
+  $password     = '',
 ){
   Exec { provider => powershell }
 
@@ -69,16 +69,16 @@ define windows_common::configuration::service (
       }
 
       registry_value { "HKLM\\System\\CurrentControlSet\\Services\\${name}\\DisplayName":
-        ensure => present,
-        type   => string,
-        data   => $display,
+        ensure  => present,
+        type    => string,
+        data    => $display,
         require => Exec["create-windows-service-${name}"],
       }
 
       registry_value { "HKLM\\System\\CurrentControlSet\\Services\\${name}\\Description":
-        ensure => present,
-        type   => string,
-        data   => $description,
+        ensure  => present,
+        type    => string,
+        data    => $description,
         require => Exec["create-windows-service-${name}"],
       }
 
@@ -97,7 +97,7 @@ define windows_common::configuration::service (
     absent: {
       exec { "delete-windows-service-${name}":
         command => "& sc.exe delete ${name}",
-        unless => "exit @(Get-Service ${name}).Count -ne 0",
+        unless  => "exit @(Get-Service ${name}).Count -ne 0",
       }
     }
     default: {
